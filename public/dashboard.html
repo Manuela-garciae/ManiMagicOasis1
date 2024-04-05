@@ -4,61 +4,124 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard</title>
+  <title>Inicio</title>
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" href="images/flower1.svg" type="image/x-icon">
+  <!-- Stylesheets-->
+  <link rel="stylesheet" type="text/css"
+    href="//fonts.googleapis.com/css?family=Roboto+Mono:300,300italic,400,700%7CArvo:400,700">
+  <link rel="stylesheet" href="css/style.css">
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 9fr;
+      grid-template-rows: 1fr 9fr;
     }
-
+    
     header {
-      background-color: #333;
+      background-color: #8a8686;
       color: #fff;
       padding: 20px;
       text-align: center;
+      grid-column: span 2;
     }
 
-    nav {
-      background-color: #014d55;
+    body > nav {
+      background-color: paleturquoise;
+      background-image: ;
       color: #fff;
       width: 250px;
-      position: fixed;
+      /* position: fixed; */
       height: 100%;
-      overflow-y: auto;
+      /* overflow-y: auto; */
     }
 
-    nav ul {
+    body > nav ul {
       list-style-type: none;
       padding: 0;
       margin: 0;
     }
 
-    nav ul li {
+    body > nav ul li {
       padding: 10px;
       text-align: center;
     }
 
-    nav ul li a {
+    body > nav ul li a {
       color: #fff;
       text-decoration: none;
     }
 
     .container {
-      margin-left: 250px;
-      padding: 20px;
+       margin-left: 15px; 
+      padding: 15px;
+      margin-right: 15px;
     }
 
     .dashboard {
       background-color: #f4f4f4;
-      padding: 20px;
+      padding: 8px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      height:1000px;
+      width: 100%;
+      
+      
     }
 
     .dashboard h2 {
       margin-top: 0;
     }
+    .container > .dashboard > .nav{
+      width: 100%;
+      height: 50px;
+      background-color: paleturquoise;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+    .dashboard > .nav > ul{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .dashboard > .nav > ul > li{
+      margin-right: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 13px;
+    }
+    /* .galeria{
+      border: #000 solid 1px;
+      width: 100%;
+      height: 80%;
+    } */
+    /* .section > .container{
+      width: 100vw;
+    height: 100vh;
+    background-color: #f0cef5;
+    display: grid;
+    grid-template-rows: 1fr 4fr 1fr;
+    grid-template-columns: 1fr 1fr;/* Espacio entre las columnas */
+    /* }
+    .section > .container > .grid-item {
+      border: 1px solid #ccc; /* Borde para visualizar los límites */
+      /* padding: 20px; /* Espacio interno para el contenido */
+/*       
+    } */ 
+    .wrapper {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-auto-rows: 200px;
+    }
+    /* .grid-item {
+      border: 1px soid #ccc; /* Borde para visualizar los límites */
+      /*padding: 20px;*/ /* Espacio interno para el contenido */
+  
   </style>
 </head>
 
@@ -71,17 +134,100 @@
   <nav>
     <ul>
       <li><a href="/perfil.html">Perfil</a></li>
-      <li><a href="#">Manicurista</a></li>
-      <li><a href="#">Citas</a></li>
+      <li><a href="/about.hmtl">Manicurista</a></li>
+      <li><a href="/servicios.html">servicios </a>
+      </li><li><a href="/favoritos">Mi favoritos</a></li>
     </ul>
-
   </nav>
   <div class="container">
     <div class="dashboard">
-      <h2>Servicios Manicuristas</h2>
-      <p>Aquí puedes encontrar los servicios ofrecidos por los manicuristas.</p>
+      <h2>Nuestro arte</h2>
+      <p>Aquí puedes encontrar los servicios ofrecidos por las manicuristas.</p>
+      <div class="nav navbar" >
+        <ul>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Acrilicas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Semipermanente</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Arte Nalis</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Press On</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Pedi Spa</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Pies</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Tradicional</a>
+          </li>
+
+          <div class="d-flex" role="search" style="position: relative;    padding-top: 13px;">
+            <input  style="border-radius: 5px; margin-left: -10px; width: 225px;" aria-label="Search"   placeholder="Busca tu diseño aqui">
+            <button style="background-color: #014D55; border-radius: 5px; position: absolute; right: 0; top: 10;">Buscar</button>
+            
+          </div>          
+        </ul>
+        
+      </div>
+      <section>
+        <div class="wrapper">
+          <div><img src="./images/uñas (1).jpg" width="150px"height="150px" alt="Imagen" id="acrilicas">
+            <br>
+            <i class="fa fa-star favorite-icon" id="favorite-icon" onclick="toggleFavorite()"></i></div>
+          <div><div><img src="./images/uñas (3).jpg" width="150px"height="150px" alt="Imagen" id="pedispa">
+            <br>
+            <i class="fa fa-star favorite-icon" id="favorite-icon" onclick="toggleFavorite()"></i></div></div>
+          <div><div><img src="./images/uñas (4).jpg" width="150px"height="150px" alt="Imagen" id="pies">
+            <br>
+            <i class="fa fa-star favorite-icon" id="favorite-icon" onclick="toggleFavorite()"></i></div></div>
+          <div><div><img src="./images/uñas (5).jpg" width="150px"height="150px" alt="Imagen" id="pies">
+            <br>
+            <i class="fa fa-star favorite-icon" id="favorite-icon" onclick="toggleFavorite()"></i></div></div>
+          <div><div><img src="./images/uñas (6).jpg" width="150px"height="150px" alt="Imagen" id="pies">
+            <br>
+            <i class="fa fa-star favorite-icon" id="favorite-icon" onclick="toggleFavorite()"></i></div></div>
+          <div><div><img src="./images/uñas7 (1).jpg" width="150px"height="150px" alt="Imagen" id="pies">
+            <br>
+            <i class="fa fa-star favorite-icon" id="favorite-icon" onclick="toggleFavorite()"></i></div></div>
+          <div><img src="./images/uñas (2).jpg" width="150px"height="150px" alt="Imagen" id="pies">
+            <br>
+            <i class="fa fa-star favorite-icon" id="favorite-icon" onclick="toggleFavorite()"></i></div>
+          <div><div><img src="./images/uñas7 (2).jpg" width="150px"height="150px" alt="Imagen" id="pies">
+            <br>
+            <i class="fa fa-star favorite-icon" id="favorite-icon" onclick="toggleFavorite()"></i></div></div>
+          <div>9</div>
+          <div>10</div>
+          <div>11</div>
+          <div>12</div>
+          <div>13</div>
+          <div>14</div>
+          <div>15</div>
+          <div>16</div>
+          <div>17</div>
+          <div>18</div>
+          <div>19</div>
+          <div>20</div>
+          <div>21</div>
+          <div>22</div>
+          <div>23</div>
+          <div>24</div>
+        </div>
+      </section>
     </div>
   </div>
+  <!-- <section class="galeria">
+    <div class="conteiner">
+         <div class="grid-item"> 2</div>
+    </div>
+  </section> -->
+
+
   <script>
     if (!localStorage.getItem('logeado')) {
       window.location = '/'
@@ -89,6 +235,12 @@
     let datalogeado = JSON.parse(localStorage.getItem('logeado'));
 
     document.getElementById('perfil').innerText = datalogeado.nombre
+    
+    function toggleFavorite() {
+      var icon = document.getElementById("favorite-icon");
+      icon.classList.toggle("fa-star-o"); // Agregar o quitar la clase 'fa-star-o' para cambiar el icono
+    }
+
   </script>
 </body>
 
