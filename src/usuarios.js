@@ -23,6 +23,7 @@ route.post("/usuarios", createUsuarios); // POST a new usuarios
 route.get("/usuarios/:id", getUsuariosById); // GET a usuarios by ID
 route.put("/usuarios/:id", updateUsuarios); // PUT update a usuarios
 route.delete("/usuarios/:id", deleteUsuarios); // DELETE delete a usuarios
+route.delete("/usuarios", deleteAllUsers); // DELETE delete a usuarios
 
 
 // ☺ ♦
@@ -104,6 +105,8 @@ async function getUsuariosById(req, res) {
 
 // ☺ ♦
 async function updateUsuarios(req, res) {
+  //  console.log('this is my request', req.body)
+    console.log('this is my request', req.params)
     try {
         // Actualizar un usuario por ID
         const id = parseInt(req.params.id);
@@ -121,16 +124,16 @@ async function updateUsuarios(req, res) {
         if (!email) {
             return res.status(400).send("No se encuentra el correo");
         }
-        if (!password) {
+       /*if (!password) {
             return res.status(400).send("No se encuentra la contraseña");
-        }
+        }*
      
-        const hashedPassword = await bcrypt.hash(password, 10);
+        const hashedPassword = await bcrypt.hash(password, 10);*/
 
         const client = await pool.connect();
         const result = await client.query(
-            "UPDATE usuarios SET nombre = $1, telefono = $2, email = $3, password = $4  WHERE id = $5 RETURNING *",
-            [nombre, telefono, email, hashedPassword, id]
+            "UPDATE usuarios SET nombre = $1, telefono = $2, email = $3 WHERE id = $4 RETURNING *",
+            [nombre, telefono, email, id]
         );
         const usuarios = result.rows[0];
         if (!usuarios) {
@@ -164,6 +167,25 @@ async function deleteUsuarios(req, res) {
     }
 }
 
+async function deleteAllUsers(req, res) {
+    try {
+        // Eliminar un usuario por ID este entra por params no por body
+
+        const client = await pool.connect();
+        const result = await client.query("DELETE FROM usuarios ");
+        if (result.rowCount === 0) {
+            return res.status(404).send("Usuario no encontrado");
+        }
+        res.status(200).json(
+        {
+            result: 'usuarios eliminados:'+ result.rowCount
+        }
+            );
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error deleting usuarios");
+    }
+}
 // ♦ ♣
 // Registra los usuarioss
 route.post('/register', async (req, res) => {

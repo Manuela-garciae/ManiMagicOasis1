@@ -75,12 +75,8 @@
                                                 <input class="form-control" id="email" type="email" name="email"
                                                     data-constraints="@Email @Required">
                                             </div>
-                                            <div class="form-group">
-                                                <label class="form-label-outside" for="login-email">Contraseña</label>
-                                                <input class="form-control" id="pass" type="password" name="pass"
-                                                    data-constraints="@Required">
-                                            </div>
-                                            <button by="editar" class="btn btn-sm btn-primary btn-block btn-circle"
+                                            
+                                            <button id="editar" class="btn btn-sm btn-primary btn-block btn-circle"
                                                 type="submit">Editar</button>
                                         </form>
                                         <br>
@@ -220,20 +216,22 @@
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
     <script>
+            let datalogeado = JSON.parse(localStorage.getItem('logeado'));
+
         if (!localStorage.getItem('logeado')) {
             window.location = '/'
         } else {
-            let datalogeado = JSON.parse(localStorage.getItem('logeado'));
             console.log(datalogeado);
             document.getElementById('nombre').value = datalogeado.nombre;
-
+            document.getElementById('telefono').value = datalogeado.telefono;
+            document.getElementById('email').value = datalogeado.email;
         }
 
-        // aqui va el fetch a delete .. ves sin errores solo porque cerre desde el principio y no al final 
+        // aqui va el fetch a delete .
         document.getElementById('trash').addEventListener('click', (r) => {
             r.preventDefault();
             const respuesta = confirm("¿Desea eliminar el usuario?");
-            const id = 1;
+            const id = datalogeado.id;
             if (respuesta) {
                 fetch('http://localhost:3000/usuarios/' + id, {
                     method: 'DELETE',
@@ -263,23 +261,22 @@
         });
 
 
-        // bien continua
+        
         document.getElementById('editar').addEventListener('click', (r) => {
             r.preventDefault();
-            const usuario = id;
+            const id = datalogeado.id;
             const nuevodato = {
                 nombre: document.getElementById('nombre').value,
                 telefono: document.getElementById('telefono').value,
-                email: document.getElementById('email').value,
-                password: document.getElementById('password').value
+                email: document.getElementById('email').value
             };
 
-            if (respuesta) {
+           
                 fetch('http://localhost:3000/usuarios/' + id, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'
-                    }
+                    },body:JSON.stringify(nuevodato)
                 }).then((response) => {
                     console.log(response);
                     if (response.ok) {
@@ -297,7 +294,6 @@
                     console.log("🚀 ~ document.getElementById ~ error:", error)
                     console.log('Ha cometido un error el sistema');
                 });
-            } 
         });     
     </script>
 </body>
