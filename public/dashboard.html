@@ -64,14 +64,17 @@
 
 <body>
   <header>
+    <div id="perfil">hola</div>
     <h1>ManiMagic Oasis</h1>
+
   </header>
   <nav>
     <ul>
-      <li><a href="#">Servicios</a></li>
+      <li><a href="/perfil.html">Perfil</a></li>
       <li><a href="#">Manicurista</a></li>
       <li><a href="#">Citas</a></li>
     </ul>
+
   </nav>
   <div class="container">
     <div class="dashboard">
@@ -83,6 +86,9 @@
     if (!localStorage.getItem('logeado')) {
       window.location = '/'
     }
+    let datalogeado = JSON.parse(localStorage.getItem('logeado'));
+
+    document.getElementById('perfil').innerText = datalogeado.nombre
   </script>
 </body>
 
