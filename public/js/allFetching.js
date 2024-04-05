@@ -1,4 +1,7 @@
 //fetch resgristro
+if (localStorage.getItem('logeado')) {
+    window.location = '/'
+}
 
 document.getElementById('register').addEventListener('submit', (event) => {
     event.preventDefault(); // Evita el envío del formulario por defecto
@@ -26,10 +29,11 @@ document.getElementById('register').addEventListener('submit', (event) => {
                 },
                 body: JSON.stringify(datos)
             }).then((response) => {
+                console.log(response);
                 if (response.ok) {
                     // Redirigir al usuario al login.html
                     window.location.href = "/";
-                    datos.loggin = true; 
+                    datos.loggin = true;
                     localStorage.setItem('logeado', JSON.stringify(datos));
                 } else {
                     const errorMessage = response.text();

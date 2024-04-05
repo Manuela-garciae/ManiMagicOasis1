@@ -38,7 +38,10 @@
     }
 
     .aiinput span button {
-      height: 55px;
+      height: 39px;
+      margin-top: 0px;
+      border-radius: 0px 10px 10px 0px;
+      padding-top: 6px;
       border-radius: 0px 10px 10px 0px;
     }
 
@@ -52,12 +55,11 @@
       right: 110px;
       display: none;
     }
-    body {
-  font-family: sans-serif;
-  margin: 20px;
-}
 
-</style>
+    body {
+      font-family: sans-serif;
+    }
+  </style>
 
 </head>
 
@@ -73,10 +75,13 @@
               </div>
             </a></div>
           <div class="page-header-right">
-            
-            <div class="booking-control"><a class="btn btn-xs btn-circle btn-primary" href="forms.html">Iniciar
+
+            <div id="iniciosession" class="booking-control"><a class="btn btn-xs btn-circle btn-primary"
+                href="forms.html">Iniciar
                 seccion</a></div>
-              
+            <div id="logout" class="booking-control"><a class="btn btn-xs btn-circle btn-primary">Salir</a></div>
+
+
             <div id="perspective-open-menu" data-custom-toggle=".perspective-menu-toggle"
               data-custom-toggle-hide-on-blur="true"><span class="perspective-menu-text">Menu</span>
               <button class="perspective-menu-toggle"><span></span></button>
@@ -95,12 +100,12 @@
                     <h1>ManiMagic Oasis</h1>
                     <p class="large text-black"></p>
                   </div>
-                  
+
                   <section id="hero">
                     <div class="hero-container">
                       <div class="form-group aiinput">
                         <label for="exampleInputEmail1">
-                          <h3>MANICHAT AI</h3>
+                          <h3>M-MAGIC CHAT AI</h3>
                         </label>
                         <span>
 
@@ -120,7 +125,8 @@
                                 keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="0"></animate>
                             </circle>
                           </svg>
-                          <button style="background-color: #014D55;" type="button" id="send" class="btn btn-primary">Preguntar</button>
+                          <button style="background-color: #014D55;" type="button" id="send"
+                            class="btn btn-primary">Preguntar</button>
                         </span>
                         <font size="3" color="white">Por favor agrega una pregunta relaciona a nuestro spa que
                           nuestra AI responderá.</font>
@@ -128,10 +134,9 @@
                       <br><br>
                       <section id="resume" class="resume">
                         <div class="container">
-                          <div class="section-title">          
+                          <div class="section-title">
                             <p id="response" class="mt-4">Esperando respuesta de la IA</p>
-                            <button type="button" id="clear"
-                              class="btn btn-xs btn-circle btn-primary"> Volver a
+                            <button type="button" id="clear" class="btn btn-xs btn-circle btn-primary"> Volver a
                               preguntar </button>
                       </section>
                     </div>
@@ -335,106 +340,110 @@
                     <p class="big">Estas reseñas que nuestros clientes han enviado recientemente son la mejor manera de
                       obtener más información sobre el nivel de servicio y atención al cliente de nuestro spa.</p>
                   </div>
-                  
 
-                <div class="cell-xs-12">
 
-                  <!--carousel-->
-                  <div class="owl-carousel owl-carousel-modern owl-spacing-1" data-items="1" data-stage-padding="0"
-                    data-loop="true" data-margin="20" data-xs-margin="30" data-mouse-drag="false" data-nav="true"
-                    data-dots="true" data-animation-in="fadeIn" data-animation-out="fadeOut">
-                    <div class="item">
-                      <blockquote class="quote-fullwidth">
-                        <div class="quote-fullwidth-left">
-                          <div class="quote-fullwidth-avatar"><span>E</span>
+                  <div class="cell-xs-12">
+
+                    <!--carousel-->
+                    <div class="owl-carousel owl-carousel-modern owl-spacing-1" data-items="1" data-stage-padding="0"
+                      data-loop="true" data-margin="20" data-xs-margin="30" data-mouse-drag="false" data-nav="true"
+                      data-dots="true" data-animation-in="fadeIn" data-animation-out="fadeOut">
+                      <div class="item">
+                        <blockquote class="quote-fullwidth">
+                          <div class="quote-fullwidth-left">
+                            <div class="quote-fullwidth-avatar"><span>E</span>
+                            </div>
                           </div>
-                        </div>
-                        <div class="quote-fullwidth-body">
-                          <div class="quote-fullwidth-header">
-                            <cite>Esteban Gonzáles</cite>
-                            <ul class="quote-fullwidth-rating">
-                              <!--estrellas reseña-->
-                              <li class="icon icon-primary fa fa-star"></li>
-                              <li class="icon icon-primary fa fa-star"></li>
-                              <li class="icon icon-primary fa fa-star"></li>
-                              <li class="icon icon-primary fa fa-star"></li>
-                              <li class="icon icon-primary fa fa-star"></li>
+                          <div class="quote-fullwidth-body">
+                            <div class="quote-fullwidth-header">
+                              <cite>Esteban Gonzáles</cite>
+                              <ul class="quote-fullwidth-rating">
+                                <!--estrellas reseña-->
+                                <li class="icon icon-primary fa fa-star"></li>
+                                <li class="icon icon-primary fa fa-star"></li>
+                                <li class="icon icon-primary fa fa-star"></li>
+                                <li class="icon icon-primary fa fa-star"></li>
+                                <li class="icon icon-primary fa fa-star"></li>
+                              </ul>
+                            </div>
+                            <p class="quote-fullwidth-text">
+                              <q>Fuí a acompañar a mi novia y quedé volado con el trabajo que hicieron. Mientras la
+                                esperaba decidí
+                                organizarme las uñas y la verdad, ¡me dejaron como un rey!</q>
+                            </p>
+                            <ul class="inline-list inline-list-md">
+                              <li><a class="icon icon-xs link-gray-base fa-facebook"></a></li>
+                              <li><a class="icon icon-xs link-gray-base fa-twitter"></a></li>
                             </ul>
                           </div>
-                          <p class="quote-fullwidth-text">
-                            <q>Fuí a acompañar a mi novia y quedé volado con el trabajo que hicieron. Mientras la esperaba decidí
-                              organizarme las uñas y la verdad, ¡me dejaron como un rey!</q>
-                          </p>
-                          <ul class="inline-list inline-list-md">
-                            <li><a class="icon icon-xs link-gray-base fa-facebook"></a></li>
-                            <li><a class="icon icon-xs link-gray-base fa-twitter"></a></li>
-                          </ul>
-                        </div>
-                      </blockquote>
-                    </div>
-                    <div class="item">
-                      <blockquote class="quote-fullwidth">
-                        <div class="quote-fullwidth-left">
-                          <div class="quote-fullwidth-avatar"><span>M</span>
+                        </blockquote>
+                      </div>
+                      <div class="item">
+                        <blockquote class="quote-fullwidth">
+                          <div class="quote-fullwidth-left">
+                            <div class="quote-fullwidth-avatar"><span>M</span>
+                            </div>
                           </div>
-                        </div>
-                        <div class="quote-fullwidth-body">
-                          <div class="quote-fullwidth-header">
-                            <cite>María Carvajal</cite>
-                            <ul class="quote-fullwidth-rating">
-                              <!--estrellas reseña-->
-                              <li class="icon icon-primary fa fa-star"></li>
-                              <li class="icon icon-primary fa fa-star"></li>
-                              <li class="icon icon-primary fa fa-star"></li>
-                              <li class="icon icon-primary fa fa-star"></li>
-                              <li class="icon icon-primary fa fa-star"></li>
+                          <div class="quote-fullwidth-body">
+                            <div class="quote-fullwidth-header">
+                              <cite>María Carvajal</cite>
+                              <ul class="quote-fullwidth-rating">
+                                <!--estrellas reseña-->
+                                <li class="icon icon-primary fa fa-star"></li>
+                                <li class="icon icon-primary fa fa-star"></li>
+                                <li class="icon icon-primary fa fa-star"></li>
+                                <li class="icon icon-primary fa fa-star"></li>
+                                <li class="icon icon-primary fa fa-star"></li>
+                              </ul>
+                            </div>
+                            <p class="quote-fullwidth-text">
+                              <q>"¡Parce, en ManiMagic la pasé excelente! Fuí a hacerme unas uñitas acrílicas y quedaron
+                                más chéveres
+                                de lo que esperaba. El ambiente es una chimba y las peladas que atienden son lo más
+                                profesional que hay. ¡volveré más seguido sin dudarlo!"</q>
+                            </p>
+                            <ul class="inline-list inline-list-md">
+                              <li><a class="icon icon-xs link-gray-base fa-facebook"></a></li>
+                              <li><a class="icon icon-xs link-gray-base fa-twitter"></a></li>
                             </ul>
                           </div>
-                          <p class="quote-fullwidth-text">
-                            <q>"¡Parce, en ManiMagic la pasé excelente! Fuí a hacerme unas uñitas acrílicas y quedaron más chéveres
-                              de lo que esperaba. El ambiente es una chimba y las peladas que atienden son lo más profesional que                              hay. ¡volveré más seguido sin dudarlo!"</q>
-                          </p>
-                          <ul class="inline-list inline-list-md">
-                            <li><a class="icon icon-xs link-gray-base fa-facebook"></a></li>
-                            <li><a class="icon icon-xs link-gray-base fa-twitter"></a></li>
-                          </ul>
-                        </div>
-                      </blockquote>
-                    </div>
-                    <div class="item">
-                      <blockquote class="quote-fullwidth">
-                        <div class="quote-fullwidth-left">
-                          <div class="quote-fullwidth-avatar"><span>S</span>
+                        </blockquote>
+                      </div>
+                      <div class="item">
+                        <blockquote class="quote-fullwidth">
+                          <div class="quote-fullwidth-left">
+                            <div class="quote-fullwidth-avatar"><span>S</span>
+                            </div>
                           </div>
-                        </div>
-                        <div class="quote-fullwidth-body">
-                          <div class="quote-fullwidth-header">
-                            <cite>Sofía Veléz</cite>
-                            <ul class="quote-fullwidth-rating">
-                              <!--estrellas reseña-->
-                              <li class="icon icon-primary fa fa-star"></li>
-                              <li class="icon icon-primary fa fa-star"></li>
-                              <li class="icon icon-primary fa fa-star"></li>
-                              <li class="icon icon-primary fa fa-star"></li>
-                              <li class="icon icon-primary fa fa-star"></li>
+                          <div class="quote-fullwidth-body">
+                            <div class="quote-fullwidth-header">
+                              <cite>Sofía Veléz</cite>
+                              <ul class="quote-fullwidth-rating">
+                                <!--estrellas reseña-->
+                                <li class="icon icon-primary fa fa-star"></li>
+                                <li class="icon icon-primary fa fa-star"></li>
+                                <li class="icon icon-primary fa fa-star"></li>
+                                <li class="icon icon-primary fa fa-star"></li>
+                                <li class="icon icon-primary fa fa-star"></li>
+                              </ul>
+                            </div>
+                            <p class="quote-fullwidth-text">
+                              <q>Yo tenía un evento muy importante, fuí a ManiMagic y me mandé a hacer un diseñito de
+                                uñas ¡quedaron
+                                super cheveres!s, todo me quedo súper
+                                espectacular! yo sé que voveré muy pronto.</q>
+                            </p>
+                            <ul class="inline-list inline-list-md">
+                              <li><a class="icon icon-xs link-gray-base fa-facebook"></a></li>
+                              <li><a class="icon icon-xs link-gray-base fa-twitter"></a></li>
                             </ul>
                           </div>
-                          <p class="quote-fullwidth-text">
-                            <q>Yo tenía un evento muy importante, fuí a ManiMagic y me mandé a hacer un diseñito de uñas ¡quedaron
-                              super cheveres!s, todo me quedo súper
-                              espectacular! yo sé que voveré muy pronto.</q>
-                          </p>
-                          <ul class="inline-list inline-list-md">
-                            <li><a class="icon icon-xs link-gray-base fa-facebook"></a></li>
-                            <li><a class="icon icon-xs link-gray-base fa-twitter"></a></li>
-                          </ul>
-                        </div>
-                      </blockquote>
+                        </blockquote>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
           </section>
           <!--page footer-->
           <footer class="page-footer page-footer-default">
@@ -451,8 +460,8 @@
                     <li class="active"><a href="index.html">Inicio</a></li>
                     <li><a href="services.html">Servicios</a></li>
                     <li><a href="about.html">Quienes somos</a></li>
-                    
-                    
+
+
                   </ul>
                   <div class="divider divider-small divider-light block-centered"></div>
                   <ul class="inline-list inline-list-md">
@@ -486,18 +495,18 @@
                     <ul class="rd-navbar-megamenu">
                       <li>
                         <p class="rd-megamenu-header"><a href="index.html">Inicio</a></p>
-                        
-                        
+
+
                         <p class="rd-megamenu-header"><a href="services.html">Servicios</a></p>
                       </li>
-                     
-                        
 
-                        <p class="rd-megamenu-header"><a href="about.html">Quienes somos</a></p>
-                        <ul class="rd-megamenu-list">
 
-                        </ul>
-                        
+
+                      <p class="rd-megamenu-header"><a href="about.html">Quienes somos</a></p>
+                      <ul class="rd-megamenu-list">
+
+                      </ul>
+
                     </ul>
                   </li>
                   <li><a href="services.html">Servicios</a>
@@ -508,7 +517,7 @@
                   </li>
                 </ul>
                 </li>
-                
+
 
                 </li>
                 </ul>
@@ -526,7 +535,7 @@
       </div>
     </main>
   </div>
- 
+
   <div class="snackbars" id="form-output-global"></div>
   <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="pswp__bg"></div>
@@ -562,10 +571,25 @@
       </div>
     </div>
   </div>
-  
+
   <script src="js/core.min.js"></script>
   <script src="js/script.js"></script>
   <script>
+    logout
+    if (localStorage.getItem('logeado')) {
+      document.getElementById('iniciosession').style.display = 'none';
+      document.getElementById('logout').style.display = 'visible';
+    } else {
+      document.getElementById('iniciosession').style.display = 'visible';
+      document.getElementById('logout').style.display = 'none';
+    }
+
+    document.getElementById('logout').addEventListener('click', (e) => {
+      e.preventDefault();
+      localStorage.removeItem('logeado');
+      window.location = '/'; 
+    });
+
     // activa el evento click 
     document.getElementById('send').addEventListener('click', (e) => {
       e.preventDefault();
@@ -573,7 +597,7 @@
       document.getElementById('preload').style.display = "block";
       // obtiene el valor
       const pregunta = document.getElementById('question').value.replace(/(\r\n|\n|\r)/gm, "");
-      
+
       // ejecuta el fetch con la url ?info=
       fetch(`http://localhost:3000/openai?info=${pregunta}`)
         .then(response => response.json())
@@ -596,4 +620,5 @@
   </script>
 
 </body>
+
 </html>

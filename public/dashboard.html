@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,6 +61,7 @@
     }
   </style>
 </head>
+
 <body>
   <header>
     <h1>ManiMagic Oasis</h1>
@@ -77,5 +79,11 @@
       <p>Aquí puedes encontrar los servicios ofrecidos por los manicuristas.</p>
     </div>
   </div>
+  <script>
+    if (!localStorage.getItem('logeado')) {
+      window.location = '/'
+    }
+  </script>
 </body>
+
 </html>

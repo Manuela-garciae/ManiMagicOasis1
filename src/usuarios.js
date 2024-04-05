@@ -42,7 +42,7 @@ async function getUsuarios(req, res) {
 
 // ☺ ♦  
 async function createUsuarios(req, res) {
-    const { nombre, telefono, email, password } = req.body;
+    const { nombre, telefono, email, password, roles } = req.body;
     try {
         // Validar la entrada del body
         if (!nombre) {
@@ -60,16 +60,18 @@ async function createUsuarios(req, res) {
         if (!roles) {
             return res.status(400).send("No se encuentra el rol");
         }
+        const hashedPassword = await bcrypt.hash(password, 10);
 
+        
         // Crear un nuevo "usuarios" en la base de datos
         const client = await pool.connect();
         const result = await client.query(
-            `INSERT INTO usuarios (nombre, telefono, email, password, roles) VALUES ($1, $2, $3, $4,'usera') RETURNING`,
-            [nombre, telefono, email, password],
+            `INSERT INTO usuarios (nombre, telefono, email, password, roles) VALUES ($1, $2, $3, $4, $5) RETURNING *`,
+            [nombre, telefono, email, hashedPassword, roles]
         );
-        console.log(nombre, telefono, email, password)
+       
         const newTodo = result.rows[0];
-        res.status(201).json(newTodo);
+        res.status(201).json({ result: 'ok', user: newTodo });
     } catch (err) {
         console.error(err);
         res.status(500).send("Error creating usuarios");
@@ -109,7 +111,7 @@ async function updateUsuarios(req, res) {
             return res.status(400).send("Invalid ID");
         }
 
-        const { nombre, telefono, email, password, roles } = req.body;
+        const { nombre, telefono, email, password } = req.body;
         if (!nombre) {
             return res.status(400).send("No se encuentra el nombre");
         }
@@ -122,14 +124,13 @@ async function updateUsuarios(req, res) {
         if (!password) {
             return res.status(400).send("No se encuentra la contraseña");
         }
-        if (!roles) {
-            return res.status(400).send("No se encuentra el rol");
-        }
+     
+        const hashedPassword = await bcrypt.hash(password, 10);
 
         const client = await pool.connect();
         const result = await client.query(
-            "UPDATE usuarios SET nombre = $1, telefono = $2, email = $3, password = $4, roles = $5 WHERE id = $6 RETURNING *",
-            [nombre, telefono, email, password, roles, id],
+            "UPDATE usuarios SET nombre = $1, telefono = $2, email = $3, password = $4  WHERE id = $5 RETURNING *",
+            [nombre, telefono, email, hashedPassword, id]
         );
         const usuarios = result.rows[0];
         if (!usuarios) {
@@ -145,7 +146,7 @@ async function updateUsuarios(req, res) {
 // ☺ ♦
 async function deleteUsuarios(req, res) {
     try {
-        // Eliminar un usuario por ID
+        // Eliminar un usuario por ID este entra por params no por body
         const id = parseInt(req.params.id);
         if (!id) {
             return res.status(400).send("Invalid ID");
@@ -169,16 +170,16 @@ route.post('/register', async (req, res) => {
     try {
         const { nombre, telefono, email, password } = req.body;
         console.log(nombre, telefono, email, password);
-        const hashedPassword = await bcrypt.hash(password, 10,()=>{});
+        const hashedPassword = await bcrypt.hash(password, 10);
 
-        
+
         const client = await pool.connect();
         const result = await client.query(
-            "INSERT INTO usuarios (nombre, telefono, email, password, roles) VALUES ($1, $2, $3, $4, $5)  ",
+            "INSERT INTO usuarios (nombre, telefono, email, password, roles) VALUES ($1, $2, $3, $4, $5)",
             [nombre, telefono, email, hashedPassword, 'usera']
         );
         const newTodo = result.rows[0];
-        res.status(201).json(newTodo);
+        res.status(201).json({ result: 'ok', user: newTodo });
     } catch (error) {
         res.status().json({ 'error': 'Ha ocurrido un error' })
     }
@@ -196,20 +197,20 @@ route.post('/forms', async (req, res) => {
         //Buscar email en la bd
         const user = await client.query('SELECT * FROM usuarios WHERE email = $1', [email]);
         if (user.rows.length === 0) {
-            return  res.status(404).json({ result:'usuario y contraseña incorrectas'})
+            return res.status(404).json({ result: 'usuario y contraseña incorrectas' })
         }
         const isPasswordValid = await bcrypt.compare(password, user.rows[0].password);
         if (!isPasswordValid) {
-            return  res.status(404).json({ result:'usuario y contraseña incorrectas'})
+            return res.status(404).json({ result: 'usuario y contraseña incorrectas' })
         }
-    
-        res.status(200).json({ result:'ok'})
+
+        res.status(200).json({ result: 'ok', user: user.rows[0] })
 
     } catch (error) {
         console.log("🚀 ~ route.post ~ error:", error)
-        
+
     }
-   
+
 });
 
 
@@ -233,10 +234,10 @@ let sepOctavo = async (req, res) => {
         messages: [{
             // en el campo content envio info y envio el entrenamiento
             role: 'user', content: `
-            tast: eres un asesor en linea llamado "ManiChat" que trabaja con el spa "ManiMagic Oasis" debes obtener la respueta del usuario y hablar unicamente de informacion sobre el spa y los servicios que ofrecemos,  1. información propuesta por el usuario: ${info} 2. información a tener en cuenta ${JSON.stringify(readData())}
+            tast: eres un asesor en linea llamado "M-MagicChat" que trabaja con el spa "ManiMagic Oasis" debes obtener la respueta del usuario y hablar unicamente de informacion sobre el spa y los servicios que ofrecemos,  1. información propuesta por el usuario: ${info} 2. información a tener en cuenta ${JSON.stringify(readData())}
             Ejemplo de respuesta:
             Pregunta: Tengo la cara fea que hago?
-            ManiChat: No estoy capacitado para responder este tipo de preguntas, sin embargo en nuestro spa tenemos varios tratamientos para dejar tu rostro limpio y más hermoso, te recomendamos... 
+            M-MagicChat: No estoy capacitado para responder este tipo de preguntas, sin embargo en nuestro spa tenemos varios tratamientos para dejar tu rostro limpio y más hermoso, te recomendamos... 
             `}],
         model: 'gpt-3.5-turbo',
     });
