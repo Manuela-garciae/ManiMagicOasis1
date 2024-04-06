@@ -32,12 +32,9 @@
 
     body > nav {
       background-color: paleturquoise;
-      background-image: ;
       color: #fff;
       width: 250px;
-      /* position: fixed; */
       height: 100%;
-      /* overflow-y: auto; */
     }
 
     body > nav ul {
@@ -95,38 +92,19 @@
       justify-content: center;
       padding-top: 13px;
     }
-    /* .galeria{
-      border: #000 solid 1px;
-      width: 100%;
-      height: 80%;
-    } */
-    /* .section > .container{
-      width: 100vw;
-    height: 100vh;
-    background-color: #f0cef5;
-    display: grid;
-    grid-template-rows: 1fr 4fr 1fr;
-    grid-template-columns: 1fr 1fr;/* Espacio entre las columnas */
-    /* }
-    .section > .container > .grid-item {
-      border: 1px solid #ccc; /* Borde para visualizar los límites */
-      /* padding: 20px; /* Espacio interno para el contenido */
-/*       
-    } */ 
+    
     .wrapper {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
       grid-auto-rows: 200px;
     }
-    /* .grid-item {
-      border: 1px soid #ccc; /* Borde para visualizar los límites */
-      /*padding: 20px;*/ /* Espacio interno para el contenido */
   
   </style>
 </head>
 
 <body>
   <header>
+    
     <div id="perfil">hola</div>
     <h1>ManiMagic Oasis</h1>
 
@@ -134,9 +112,9 @@
   <nav>
     <ul>
       <li><a href="/perfil.html">Perfil</a></li>
-      <li><a href="/about.hmtl">Manicurista</a></li>
-      <li><a href="/servicios.html">servicios </a>
-      </li><li><a href="/favoritos">Mi favoritos</a></li>
+      <li><a href="/about.html">Manicurista</a></li>
+      <li><a href="/about.html">Agendar cita</a></li>
+
     </ul>
   </nav>
   <div class="container">
@@ -157,9 +135,7 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Press On</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Pedi Spa</a>
-          </li>
+          
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Pies</a>
           </li>
@@ -174,49 +150,89 @@
           </div>          
         </ul>
         
+          <!-- Calendly badge widget begin -->
+          <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+          <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+
+
+          <script
+            type="text/javascript">window.onload = function () { Calendly.initBadgeWidget({ url: 'https://calendly.com/xescobarsoft/agenda-tu-cita?background_color=d2f4ea&primary_color=5405dc', text: 'Agenda tu cita', color: '#014d55', textColor: '#ffffff', branding: undefined }); }</script>
+          <!-- Calendly badge widget end -->
       </div>
       <section>
         <div class="wrapper">
-          <div><img src="./images/uñas (1).jpg" width="150px"height="150px" alt="Imagen" id="acrilicas">
+          <div><img src="./images/estrellita (1).jpg" width="150px"height="150px" alt="Imagen" id="acrilicas">
             <br>
             <i class="fa fa-star favorite-icon" id="favorite-icon" onclick="toggleFavorite()"></i></div>
-          <div><div><img src="./images/uñas (3).jpg" width="150px"height="150px" alt="Imagen" id="pedispa">
+          <div><div><img src="./images/estrellita (2).jpg" width="150px"height="150px" alt="Imagen" id="pedispa">
             <br>
             <i class="fa fa-star favorite-icon" id="favorite-icon" onclick="toggleFavorite()"></i></div></div>
-          <div><div><img src="./images/uñas (4).jpg" width="150px"height="150px" alt="Imagen" id="pies">
+          <div><div><img src="./images/estrellita (3).jpg" width="150px"height="150px" alt="Imagen" id="pies">
             <br>
             <i class="fa fa-star favorite-icon" id="favorite-icon" onclick="toggleFavorite()"></i></div></div>
-          <div><div><img src="./images/uñas (5).jpg" width="150px"height="150px" alt="Imagen" id="pies">
+          <div><div><img src="./images/estrellita (4).jpg" width="150px"height="150px" alt="Imagen" id="pies">
             <br>
             <i class="fa fa-star favorite-icon" id="favorite-icon" onclick="toggleFavorite()"></i></div></div>
-          <div><div><img src="./images/uñas (6).jpg" width="150px"height="150px" alt="Imagen" id="pies">
+          <div><div><img src="./images/estrellita (5).jpg" width="150px"height="150px" alt="Imagen" id="pies">
             <br>
             <i class="fa fa-star favorite-icon" id="favorite-icon" onclick="toggleFavorite()"></i></div></div>
-          <div><div><img src="./images/uñas7 (1).jpg" width="150px"height="150px" alt="Imagen" id="pies">
+          <div><div><img src="./images/estrellita (6).jpg" width="150px"height="150px" alt="Imagen" id="pies">
             <br>
             <i class="fa fa-star favorite-icon" id="favorite-icon" onclick="toggleFavorite()"></i></div></div>
-          <div><img src="./images/uñas (2).jpg" width="150px"height="150px" alt="Imagen" id="pies">
+          <div><img src="./images/estrellita (7).jpg" width="150px"height="150px" alt="Imagen" id="pies">
             <br>
             <i class="fa fa-star favorite-icon" id="favorite-icon" onclick="toggleFavorite()"></i></div>
-          <div><div><img src="./images/uñas7 (2).jpg" width="150px"height="150px" alt="Imagen" id="pies">
+          <div><div><img src="./images/estrellita (8).jpg" width="150px"height="150px" alt="Imagen" id="pies">
             <br>
             <i class="fa fa-star favorite-icon" id="favorite-icon" onclick="toggleFavorite()"></i></div></div>
-          <div>9</div>
-          <div>10</div>
-          <div>11</div>
-          <div>12</div>
-          <div>13</div>
-          <div>14</div>
-          <div>15</div>
-          <div>16</div>
-          <div>17</div>
-          <div>18</div>
-          <div>19</div>
-          <div>20</div>
-          <div>21</div>
-          <div>22</div>
-          <div>23</div>
-          <div>24</div>
+          <div><div><img src="./images/estrellita (9).jpg" width="150px"height="150px" alt="Imagen" id="pies">
+            <br>
+            <i class="fa fa-star favorite-icon" id="favorite-icon" onclick="toggleFavorite()"></i></div></div>
+          <div><div><img src="./images/estrellita (10).jpg" width="150px"height="150px" alt="Imagen" id="pies">
+            <br>
+            <i class="fa fa-star favorite-icon" id="favorite-icon" onclick="toggleFavorite()"></i></div></div>
+          <div><div><img src="./images/estrellita (11).jpg" width="150px"height="150px" alt="Imagen" id="pies">
+            <br>
+            <i class="fa fa-star favorite-icon" id="favorite-icon" onclick="toggleFavorite()"></i></div></div>
+          <div><div><img src="./images/estrellita (12).jpg" width="150px"height="150px" alt="Imagen" id="pies">
+            <br>
+            <i class="fa fa-star favorite-icon" id="favorite-icon" onclick="toggleFavorite()"></i></div></div>
+          <div><div><img src="./images/estrellita (13).jpg" width="150px"height="150px" alt="Imagen" id="pies">
+            <br>
+            <i class="fa fa-star favorite-icon" id="favorite-icon" onclick="toggleFavorite()"></i></div></div>
+          <div><div><img src="./images/estrellita (14).jpg" width="150px"height="150px" alt="Imagen" id="pies">
+            <br>
+            <i class="fa fa-star favorite-icon" id="favorite-icon" onclick="toggleFavorite()"></i></div></div>
+          <div><div><img src="./images/estrellita (15).jpg" width="150px"height="150px" alt="Imagen" id="pies">
+            <br>
+            <i class="fa fa-star favorite-icon" id="favorite-icon" onclick="toggleFavorite()"></i></div></div>
+          <div><div><img src="./images/estrellita (16).jpg" width="150px"height="150px" alt="Imagen" id="pies">
+            <br>
+            <i class="fa fa-star favorite-icon" id="favorite-icon" onclick="toggleFavorite()"></i></div></div>
+          <div><div><img src="./images/estrellita (17).jpg" width="150px"height="150px" alt="Imagen" id="pies">
+            <br>
+            <i class="fa fa-star favorite-icon" id="favorite-icon" onclick="toggleFavorite()"></i></div></div>
+          <div><div><img src="./images/estrellita (18).jpg" width="150px"height="150px" alt="Imagen" id="pies">
+            <br>
+            <i class="fa fa-star favorite-icon" id="favorite-icon" onclick="toggleFavorite()"></i></div></div>
+          <div><div><img src="./images/estrellita (19).jpg" width="150px"height="150px" alt="Imagen" id="pies">
+            <br>
+            <i class="fa fa-star favorite-icon" id="favorite-icon" onclick="toggleFavorite()"></i></div></div>
+          <div><div><img src="./images/estrellita (20).jpg" width="150px"height="150px" alt="Imagen" id="pies">
+            <br>
+            <i class="fa fa-star favorite-icon" id="favorite-icon" onclick="toggleFavorite()"></i></div></div>
+          <div><div><img src="./images/estrellita (21).jpg" width="150px"height="150px" alt="Imagen" id="pies">
+            <br>
+            <i class="fa fa-star favorite-icon" id="favorite-icon" onclick="toggleFavorite()"></i></div></div>
+          <div><div><img src="./images/estrellita (23).jpg" width="150px"height="150px" alt="Imagen" id="pies">
+            <br>
+            <i class="fa fa-star favorite-icon" id="favorite-icon" onclick="toggleFavorite()"></i></div></div>
+          <div><div><img src="./images/estrellita (24).jpg" width="150px"height="150px" alt="Imagen" id="pies">
+            <br>
+            <i class="fa fa-star favorite-icon" id="favorite-icon" onclick="toggleFavorite()"></i></div></div>
+          <div><div><div><img src="./images/estrellita (25).jpg" width="150px"height="150px" alt="Imagen" id="pies">
+            <br>
+            <i class="fa fa-star favorite-icon" id="favorite-icon" onclick="toggleFavorite()"></i></div></div></div>
         </div>
       </section>
     </div>
