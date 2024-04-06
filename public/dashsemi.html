@@ -99,7 +99,71 @@
       grid-template-columns: repeat(6, 1fr);
       grid-auto-rows: 200px;
     }
-  
+    @media screen and (width <= 390px) {
+        body{
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        header{
+            width: 100%;
+        }
+
+        .dashboard{
+            box-sizing: border-box;
+            padding: 0;
+        }
+        .dashboard :is(h2, p){
+            padding: 4px;
+        }
+        body > nav{
+            margin-bottom: 15px;
+            padding: 0;
+            width: 100vw;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+        }
+
+        .aside-nav{
+            width: 100vw;
+            margin: 0;
+        }
+
+        nav ul{
+            width: 100%;
+            height: fit-content;
+            text-align: center;
+        }
+
+        section{
+            width: 100vw;
+        }
+
+        div.container{
+            max-width: 450px !important;
+            margin: 0;
+            padding: 0;
+        }
+
+        .d-flex{
+            display: none;
+        }
+
+        div.nav.navbar ul{
+            margin: 0;
+            flex-wrap: wrap;
+            height: fit-content;
+            background-color: paleturquoise;
+            padding: 10px 0;
+            justify-content: center;
+        }
+
+        .wrapper{
+            margin-top: 70px;
+        }
+
+    }
   </style>
 </head>
 
