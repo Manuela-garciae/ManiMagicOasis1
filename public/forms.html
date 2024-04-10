@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="wide wow-animation" lang="en">
+<html class="wide wow-animation" lang="es">
 
 <head>
   <!-- Site Title-->
@@ -63,7 +63,7 @@
                                   Registrarse</b></u></span></a></p>
                       </div>
                       <button class="btn btn-sm btn-primary btn-block btn-circle" type="submit"
-                        value="Registrarse">Iniciar seccion</button>
+                        value="Registrarse">Iniciar Sesion</button>
                     </form>
                   </div>
                 </div>
@@ -134,47 +134,7 @@
   </div>
   <script src="js/core.min.js"></script>
   <script src="js/script.js"></script>
-  <script>
-
-    if( localStorage.getItem('logeado') ){ 
-      window.location = '/'
-    }
-    ///fetch de login 
-    document.getElementById('forms').addEventListener('submit', async (event) => {
-      event.preventDefault(); // Evita el envío del formulario por defecto
-
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-
-      try {
-        const response = await fetch('http://localhost:3000/forms', {
-          method: 'post',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email, password })
-        }).then((response) => response.json())
-          .then(async (response) => {
-            console.log(response);
-
-            if (response.result == 'ok') {
-              console.log("🚀 ~ response:", response)
-              localStorage.setItem('logeado', JSON.stringify(response.user));
-              // Redirigir al usuario al inicio.html
-              window.location.href = "dashboard.html";
-            } else {
-              const errorMessage = 'Existe actualmente un error en el server';
-              alert(errorMessage);
-            }
-          }).catch((error) => {
-            console.error('Ha cometido un error el sistema', error);
-          });
-
-
-      } catch (error) {
-        console.error("Error al iniciar sesión:", error);
-        alert("Error al iniciar sesión. Por favor, intenta nuevamente.");
-      }
-    });
-  </script>
+  <script src="js/login.js"></script>
 
 </body>
 

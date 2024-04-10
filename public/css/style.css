@@ -12,6 +12,46 @@ html {
 	-ms-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
 }
+  
+
+.aiinput input {
+	font-size: 28px;
+  }
+
+  .aiinput label,
+  .aiinput #emailHelp {
+	color: white !important;
+  }
+
+  .aiinput span {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+  }
+
+  .aiinput span button {
+	height: 39px;
+	margin-top: 0px;
+	border-radius: 0px 10px 10px 0px;
+	padding-top: 6px;
+	border-radius: 0px 10px 10px 0px;
+  }
+
+  .aiinput span input {
+	border-radius: 10px 0px 0px 10px;
+  }
+
+  svg {
+	position: absolute;
+	width: 50px;
+	right: 110px;
+	display: none;
+  }
+
+  body {
+	font-family: sans-serif;
+  }
 
 body {
 	margin: 0;
@@ -7859,11 +7899,6 @@ form {
 		padding-left: 8px;
 		padding-right: 8px;
 	}
-}
-
-[class*="cell-"] {
-	padding-left: 15px;
-	padding-right: 15px;
 }
 
 html.lt-ie-10 * + .range,

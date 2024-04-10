@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8">
@@ -13,94 +13,7 @@
     href="//fonts.googleapis.com/css?family=Roboto+Mono:300,300italic,400,700%7CArvo:400,700">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      display: grid;
-      grid-template-columns: 1fr 9fr;
-      grid-template-rows: 1fr 9fr;
-    }
-    
-    header {
-      background-color: #8a8686;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-      grid-column: span 2;
-    }
-
-    body > nav {
-      background-color: paleturquoise;
-      color: #fff;
-      width: 250px;
-      height: 100%;
-    }
-
-    body > nav ul {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    body > nav ul li {
-      padding: 10px;
-      text-align: center;
-    }
-
-    body > nav ul li a {
-      color: #fff;
-      text-decoration: none;
-    }
-
-    .container {
-        margin-left: 15px; 
-      padding: 15px;
-      margin-right: 15px;
-    }
-
-    .dashboard {
-      background-color: #f4f4f4;
-      padding: 8px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      height:1000px;
-      width: 100%;
-      
-      
-    }
-
-    .dashboard h2 {
-      margin-top: 0;
-    }
-    .container > .dashboard > .nav{
-      width: 100%;
-      height: 50px;
-      background-color: paleturquoise;
-      margin-top: 10px;
-      border-radius: 5px;
-    }
-    .dashboard > .nav > ul{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .dashboard > .nav > ul > li{
-      margin-right: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding-top: 13px;
-    }
-    
-    .wrapper {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      grid-auto-rows: 200px;
-    }
-  
-  </style>
+  <link rel="stylesheet" href="css/dashboard.css">
 </head>
 
 <body>
@@ -108,11 +21,15 @@
     
     <div id="perfil">hola</div>
     <h1>ManiMagic Oasis</h1>
-
+    <div class="page-header-right botonSalir">
+      <div id="logout" class="booking-control"><a class="btn btn-xs btn-circle btn-primary">Salir</a></div>
+    </div>
   </header>
   <nav>
     <ul>
         <br>
+        <div class="cell-sm-10 cell-lg-9"><a class="brand-big" href="index.html"><img src="images/LOGO1.svg"
+          alt="" width="250" height="300" /></a>
       <li><a href="/perfil.html">Perfil</a></li>
       <li><a href="/about.html">Manicurista</a></li>
       <li><a href="/services.html">servicios</a></li>
@@ -183,48 +100,7 @@
     </div>
   </div>
   
-  <script>
-    if (!localStorage.getItem('logeado')) {
-      window.location = '/'
-    }
-    let datalogeado = JSON.parse(localStorage.getItem('logeado'));
-
-    document.getElementById('perfil').innerText = datalogeado.nombre
-    
-    function toggleFavorite() {
-      var icon = document.getElementById("favorite-icon");
-      icon.classList.toggle("fa-star-o"); // Agregar o quitar la clase 'fa-star-o' para cambiar el icono
-    }
-    let arreglo = Array.from(document.querySelectorAll('.fa-star'));
-
-    arreglo.forEach(function(myIcon) {
-        myIcon.onclick = function() {
-            if (!myIcon.classList.contains('active')) {
-                myIcon.classList.add('active');
-                myIcon.classList.remove('fa-star');
-                myIcon.classList.add('fa-check');
-
-                localStorage.setItem(myIcon.id, 'active');
-            } else {
-                myIcon.classList.remove('active');
-                myIcon.classList.remove('fa-check');
-                myIcon.classList.add('fa-star');
-
-                localStorage.setItem(myIcon.id, 'inactive');
-            }
-        }
-        const iconState = localStorage.getItem(myIcon.id);
-        if (iconState === 'active') {
-            myIcon.classList.add('active');
-            myIcon.classList.remove('fa-star');
-            myIcon.classList.add('fa-check');
-        } else {
-            myIcon.classList.remove('fa-check');
-            myIcon.classList.add('fa-star');
-        }
-    });
-    
-  </script>
+  <script src="js/dashboard.js"></script>
   
 </body>
 

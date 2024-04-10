@@ -26,7 +26,7 @@ route.delete("/usuarios/:id", deleteUsuarios); // DELETE delete a usuarios
 route.delete("/usuarios", deleteAllUsers); // DELETE delete a usuarios
 
 
-// ☺ ♦
+// ☺ ♦ todos los usuarios
 async function getUsuarios(req, res) {
     try {
         // Obtener usuarios los "usuarios" de la base de datos
@@ -41,7 +41,7 @@ async function getUsuarios(req, res) {
 }
 
 
-// ☺ ♦  
+// ☺ ♦  crear usuarios
 async function createUsuarios(req, res) {
     const { nombre, telefono, email, password, roles } = req.body;
     try {
@@ -79,7 +79,7 @@ async function createUsuarios(req, res) {
     }
 }
 
-// ☺ ♦
+// ☺ ♦ leer usuariods
 async function getUsuariosById(req, res) {
     try {
         // Obtener un "usuarios" por ID
@@ -103,7 +103,7 @@ async function getUsuariosById(req, res) {
     }
 }
 
-// ☺ ♦
+// ☺ ♦actualizar usuarios
 async function updateUsuarios(req, res) {
   //  console.log('this is my request', req.body)
     console.log('this is my request', req.params)

@@ -32,8 +32,7 @@ async function getServicios(req, res) {
         const servicios = results.rows;
         res.status(200).json(servicios);
     } catch (err) {
-        console.error(err);
-        res.status(500).send("Error retrieving servicios");
+        res.status(500).send("Error Recibiendo los  servicios");
     }
 }
 
