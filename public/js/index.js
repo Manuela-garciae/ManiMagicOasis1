@@ -19,7 +19,7 @@ if (localStorage.getItem('logeado')) {
     const pregunta = document.getElementById('question').value.replace(/(\r\n|\n|\r)/gm, "");
 
     // ejecuta el fetch con la url ?info=
-    fetch(`http://localhost:3000/openai?info=${pregunta}`)
+    fetch(`/openai?info=${pregunta}`)
       .then(response => response.json())
       .then(data => {
         // envio el dato recibido al texto respuesta
