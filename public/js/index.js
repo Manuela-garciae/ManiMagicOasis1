@@ -1,5 +1,6 @@
 //acceso logout
-    
+import {BASE_URL} from "./constans.js";
+
 if (localStorage.getItem('logeado')) {
     document.getElementById('iniciosession').style.display = 'none';
     document.getElementById('logout').style.display = 'visible';
@@ -19,7 +20,7 @@ if (localStorage.getItem('logeado')) {
     const pregunta = document.getElementById('question').value.replace(/(\r\n|\n|\r)/gm, "");
 
     // ejecuta el fetch con la url ?info=
-    fetch(`/openai?info=${pregunta}`)
+     fetch(`${BASE_URL}/openai?info=${pregunta}`)
       .then(response => response.json())
       .then(data => {
         // envio el dato recibido al texto respuesta

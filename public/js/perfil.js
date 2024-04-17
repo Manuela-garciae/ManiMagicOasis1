@@ -1,3 +1,5 @@
+import {BASE_URL} from "./constans.js";
+ 
  ///buscar id logeado
  let datalogeado = JSON.parse(localStorage.getItem('logeado'));
 
@@ -17,7 +19,7 @@
      const respuesta = confirm("¿Desea eliminar el usuario?");
      const id = datalogeado.id;
      if (respuesta) {
-         fetch('/usuarios/' + id, {
+         fetch(`${BASE_URL}/usuarios/${id}`, {
              method: 'DELETE',
              headers: {
                  'Content-Type': 'application/json'
@@ -58,7 +60,7 @@
      };
 
     
-         fetch('/usuarios/' + id, {
+         fetch(`${BASE_URL}/usuarios/${id}`, {
              method: 'PUT',
              headers: {
                  //objeto json
@@ -68,10 +70,10 @@
              console.log(response);
              if (response.ok) {
                  // se actualizo
-                 alert("Usuario actualizado");
+                 alert("Usuario actualizado, debes volver a iniciar sesion");
                  localStorage.removeItem('logeado');
                  setTimeout(() => {
-                     window.location.href = "/";
+                     window.location.href = "/dashboard.html";
                  }, 400);
              } else {
                  const errorMessage = response.text();

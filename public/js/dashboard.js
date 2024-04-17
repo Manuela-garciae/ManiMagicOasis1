@@ -9,11 +9,7 @@ document.getElementById('logout').addEventListener('click', (e) => {
     window.location = '/';
 });
 
-document.getElementById('perfil').innerText = datalogeado.nombre
-
-
-
-
+document.getElementById('perfil').innerHTML = `<h3>${datalogeado.nombre}</h3>`;
 
 function toggleFavorite() {
     var icon = document.getElementById("favorite-icon");
@@ -47,7 +43,7 @@ arreglo.forEach(function (myIcon) {
         myIcon.classList.add('fa-star');
     }
 });
-logout
+
 if (localStorage.getItem('logeado')) {
     document.getElementById('iniciosession').style.display = 'none';
     document.getElementById('logout').style.display = 'visible';

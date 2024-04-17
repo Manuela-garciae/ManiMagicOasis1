@@ -9,7 +9,7 @@ if( localStorage.getItem('logeado') ){
     const password = document.getElementById('password').value;
 
     try {
-      const response = await fetch('/forms', {
+      const response = await fetch('http://localhost:3000/forms', {
         method: 'post',
         //objeto json
         headers: { 'Content-Type': 'application/json' },
