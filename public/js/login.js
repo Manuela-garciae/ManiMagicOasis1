@@ -1,3 +1,4 @@
+import {BASE_URL} from "./constans.js";
 if( localStorage.getItem('logeado') ){ 
     window.location = '/'
   }
@@ -9,7 +10,7 @@ if( localStorage.getItem('logeado') ){
     const password = document.getElementById('password').value;
 
     try {
-      const response = await fetch('http://localhost:3000/forms', {
+      const response = await fetch(`${BASE_URL}/forms`, {
         method: 'post',
         //objeto json
         headers: { 'Content-Type': 'application/json' },
